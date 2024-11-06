@@ -23,12 +23,16 @@ public class Ej8 {
 			lista[i] = random;
 		}
 
+		// Pide el numero que vamos a buscar
 		System.out.println("Escribe un numero");
 		num = scanner.nextInt();
 
-		// Imprime la tabla
+		// Recorre la tabla con un for
 		for (int j = 0; j < lista.length; j++) {
+
+			// Comprueba el valor del numero en la posición J
 			if (lista[j] == num) {
+				// Indica que ese número se haya en la posición J de la tabla
 				System.out.println("Hay un " + num + " en la posición " + j);
 			}
 		}
