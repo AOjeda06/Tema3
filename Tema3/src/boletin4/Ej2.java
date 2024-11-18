@@ -39,8 +39,10 @@ public class Ej2 {
 			System.out.println();
 		}
 
+		// Llamamos a la funcion
 		intMaximo = intMaximo(matrizEjemplo);
 
+		// Respuesta
 		System.out.println("El mayor numero de la matriz: " + intMaximo);
 	}
 
