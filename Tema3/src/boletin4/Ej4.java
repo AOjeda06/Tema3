@@ -7,43 +7,37 @@ import java.util.Scanner;
 public class Ej4 {
 
 	// Funcion para crear la tabla
-	public static int[] rellenaPares(int longitud, int fin) {
-		// Variables
-		Random rand = new Random();
-		int tabla[] = new int[longitud];
-		int random;
+	public static int buscar(int t[], int search) {
 
-		// Bucle para rellenar la tabla
-		for (int i = 0; i < tabla.length; i++) {
-			// Bucle para asegurarnos de que el numero aleatorio generado es par
-			do {
-				random = rand.nextInt(2, fin + 1);
-			} while (random % 2 != 0);
-			tabla[i] = random;
+		for (int i = 0; i < t.length; i++) {
+			if (t[i] == search) {
+				return i;
+			}
 		}
-		// Devuelve la tabla resultante rellenada
-		return tabla;
+
+		return -1;
 	}
 
 	public static void main(String[] args) {
 		// Variables
-		int longitud;
-		int fin;
-
-		// Creamos el scanner
 		Scanner scanner = new Scanner(System.in);
+		Random rand = new Random();
+		int rand1 = rand.nextInt(1, 100);
+		int rand2;
+		int search;
 
-		// Pide y guarda numeros
-		System.out.println("Indica la longitud: ");
-		longitud = scanner.nextInt();
+		int t[] = new int[rand1];
 
-		System.out.println("Indica el fin: ");
-		fin = scanner.nextInt();
+		for (int i = 0; i < t.length; i++) {
+			rand2 = rand.nextInt(1, 100);
+			t[i] = rand2;
+		}
 
-		// Imprime la tabla resultante de la funcion
-		System.out.println(Arrays.toString(rellenaPares(longitud, fin)));
+		System.out.println("¿Qué numero quieres buscar?");
+		search = scanner.nextInt();
 
-		// Cerramos el scanner
+		System.out.println("El numero está en la posicion: " + buscar(t, search));
+
 		scanner.close();
 
 	}
