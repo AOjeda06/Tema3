@@ -1,43 +1,56 @@
 package boletin4;
 
-import java.util.Random;
-import java.util.Scanner;
-
 public class Ej5 {
 
-	// Funcion para crear la tabla
-	public static int buscar(int t[], int search) {
+	// Función que busca todos los índices de un valor en el array
+	public static int[] buscarTodos(int[] t, int valor) {
+		// Crear un array para almacenar los índices, asumiendo el peor caso en que
+		// todos los elementos coinciden
+		int[] indicesTemp = new int[t.length];
+		int contador = 0;
 
+		// Recorrer todos los elementos del array
 		for (int i = 0; i < t.length; i++) {
-			if (t[i] == search) {
-				return i;
+			// Si encuentra el valor, agregar el índice al array temporal
+			if (t[i] == valor) {
+				indicesTemp[contador++] = i;
 			}
 		}
 
-		return -1;
-	}
-
-	public static void main(String[] args) {
-		// Variables
-		Scanner scanner = new Scanner(System.in);
-		Random rand = new Random();
-		int rand1 = rand.nextInt(1, 100);
-		int rand2;
-		int search;
-
-		int t[] = new int[rand1];
-
-		for (int i = 0; i < t.length; i++) {
-			rand2 = rand.nextInt(1, 100);
-			t[i] = rand2;
+		// Crear un array del tamaño exacto para almacenar los índices encontrados
+		int[] resultado = new int[contador];
+		for (int i = 0; i < contador; i++) {
+			resultado[i] = indicesTemp[i];
 		}
 
-		System.out.println("¿Qué numero quieres buscar?");
-		search = scanner.nextInt();
+		return resultado;
+	}
 
-		System.out.println("El numero está en la posicion: " + buscar(t, search));
+	// Método main para probar la función
+	public static void main(String[] args) {
+		// Crear un array de ejemplo
+		int[] tabla = { 10, 20, 30, 10, 40, 10, 50 };
 
-		scanner.close();
+		// Valor a buscar
+		int valor = 10;
 
+		// Llamar a la función buscarTodos
+		int[] indicesEncontrados = buscarTodos(tabla, valor);
+
+		// Imprimir el resultado
+		System.out.println("Índices donde se encuentra el valor " + valor + ":");
+		for (int indice : indicesEncontrados) {
+			System.out.print(indice + " ");
+		}
+
+		// Probar con un valor que no está en el array
+		valor = 60;
+		indicesEncontrados = buscarTodos(tabla, valor);
+
+		// Imprimir el resultado
+		System.out.println("\nÍndices donde se encuentra el valor " + valor + ":");
+		for (int indice : indicesEncontrados) {
+			System.out.print(indice + " ");
+		}
 	}
 }
