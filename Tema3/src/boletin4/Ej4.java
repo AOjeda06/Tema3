@@ -5,16 +5,22 @@ import java.util.Scanner;
 
 public class Ej4 {
 
-	// Funcion para crear la tabla
+	// Función para crear la tabla
 	public static int buscar(int t[], int search) {
+		int indice = 0;
+		int resultado = -1; // Valor predeterminado en caso de no encontrar el valor
 
-		for (int i = 0; i < t.length; i++) {
-			if (t[i] == search) {
-				return i;
+		// Bucle while para recorrer la tabla
+		while (indice < t.length) {
+			if (t[indice] == search) {
+				resultado = indice;
+				indice = t.length; // Establecer el índice fuera del rango para salir del bucle
+			} else {
+				indice++;
 			}
 		}
 
-		return -1;
+		return resultado; // Devuelve la posición encontrada o -1 si no se encontró
 	}
 
 	public static void main(String[] args) {
@@ -32,13 +38,11 @@ public class Ej4 {
 			t[i] = rand2;
 		}
 
-		System.out.println("¿Qué numero quieres buscar?");
+		System.out.println("¿Qué número quieres buscar?");
 		search = scanner.nextInt();
 
-		System.out.println("El numero está en la posicion: " + buscar(t, search));
+		System.out.println("El número está en la posición: " + buscar(t, search));
 
 		scanner.close();
-
 	}
-
 }
