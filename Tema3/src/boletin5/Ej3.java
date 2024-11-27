@@ -41,9 +41,11 @@ public class Ej3 {
 			}
 		}
 
+		// Imprime el array original
 		System.out.println("Array original:");
 		System.out.println(Arrays.deepToString(t));
 
+		// Imprime el array barajado
 		System.out.println("Array desordenado:");
 		System.out.println(Arrays.deepToString(desordena(t)));
 
