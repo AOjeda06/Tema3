@@ -8,6 +8,7 @@ public class Ej10 {
 	// Función que verifica si la matriz es mágica
 	public static boolean esMagica(int[][] t) {
 		int sumaFila, sumaCol;
+		boolean magica = true;
 
 		// Calcular la suma de la primera fila para comparar
 		int sumaReferencia = 0;
@@ -22,7 +23,7 @@ public class Ej10 {
 				sumaFila += t[i][j];
 			}
 			if (sumaFila != sumaReferencia) {
-				return false;
+				magica = false;
 			}
 		}
 
@@ -33,11 +34,11 @@ public class Ej10 {
 				sumaCol += t[i][j];
 			}
 			if (sumaCol != sumaReferencia) {
-				return false;
+				magica = false;
 			}
 		}
 
-		return true; // Es mágica
+		return magica; // Es mágica
 	}
 
 	public static void main(String[] args) {
